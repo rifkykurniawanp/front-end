@@ -1,59 +1,33 @@
-export interface HeroStat {
-  value : string
-  label : string
-  tooltip?: string 
-}
+import type { ReactNode } from "react"
+import type { StaticImageData } from "next/image"
 
-export interface HeroCta {
-  primary   : string
-  secondary : string
-}
-
-export interface HeroImage {
-  src         : string
-  alt         : string
-  fallback    : string 
+export interface HeroCTA {
+  label: string
+  href?: string
+  onClick?: () => void
 }
 
 export interface HeroData {
-  badge       : string
-  headline    : string[]
-  subheadline : string
-  description : string
-  stats       : HeroStat[]
-  cta         : HeroCta
-  image       : HeroImage
-  doctor      : {
-    name           : string
-    specialization : string
-  }
+  title: string
+  subtitle: string
+  description?: string
+
+  primaryCta?: HeroCTA
+  secondaryCta?: HeroCTA
+
+  image: string | StaticImageData
+  imageAlt?: string
 }
 
-export interface HeroBadgeProps {
-  text: string
+export interface HeroInfoCardProps {
+  title: string
+  subtitle: string
+  description?: string
+  primaryCta?: ReactNode
+  secondaryCta?: ReactNode
 }
 
-export interface HeroStatItemProps {
-  value   : string
-  label   : string
-  tooltip?: string
-}
-
-export interface HeroImageProps {
-  src      : string
-  alt      : string
-  fallback : string
-  name     : string
-  specialty: string
-}
-
-export interface HeroContentProps {
-  badge          : string
-  headline       : string[]
-  subheadline    : string
-  description    : string
-  stats          : HeroStat[]
-  cta            : HeroCta
-  onCtaPrimary   : () => void
-  onCtaSecondary : () => void
+export interface HeroImageCardProps {
+  image: string | StaticImageData
+  alt?: string
 }
